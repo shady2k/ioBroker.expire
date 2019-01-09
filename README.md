@@ -1,4 +1,4 @@
-![Logo](admin/ping.png)
+![Logo](admin/expire.png)
 ioBroker Expire Adapter
 ==============
 
