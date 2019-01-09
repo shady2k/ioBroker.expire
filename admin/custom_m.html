@@ -1,0 +1,71 @@
+<script type="text/x-iobroker" data-template-name="expire">
+    <div class="row">
+        <div class="col s2">
+            <input type="checkbox" data-field="enabled" data-default="false"/>
+            <!-- this field is mandatory, just to find out if to include this settings or not</span-->
+            <span class="translate">enabled</span>
+        </div>
+        <div class="col s4">
+            <input type="text" data-field="interval" size="30">
+            <span class="translate">period of time in 2d3h5m19s format</span>
+        </div>
+        <div class="col s4">
+                <input type="text" data-field="state" size="30">
+                <span class="translate">new state</span>
+        </div>
+        <div class="col s2">
+                <input type="checkbox" data-field="setAck" data-default="false">
+                <span class="translate">ack</span>
+        </div>
+    </div>
+</script>
+
+<!-- translations -->
+<script type="text/javascript">
+    systemDictionary = $.extend(systemDictionary, {
+        "enabled": {
+            "en": "enabled",
+            "de": "aktiviert",
+            "ru": "включен",
+            "pt": "ativado",
+            "nl": "ingeschakeld",
+            "fr": "activée",
+            "it": "abilitato",
+            "es": "habilitado"
+        },
+        "period of time in 2d3h5m19s format": {
+            "en": "period of time in 2d3h5m19s format",
+            "de": "Zeitraum im 2d3h5m19s Format",
+            "ru": "интервал времени в формате 2d3h5m19s",
+            "pt": "período de tempo no formato 2d3h5m19s",
+            "nl": "tijdsperiode in het formaat 2d3h5m19s",
+            "fr": "période de temps au format 2d3h5m19s",
+            "it": "periodo di tempo nel formato 2d3h5m19s",
+            "es": "periodo de tiempo en formato 2d3h5m19s"
+        },
+        "new state": {
+            "en": "new state",
+            "de": "neuer Staat",
+            "ru": "новое значение",
+            "pt": "novo estado",
+            "nl": "nieuwe staat",
+            "fr": "nouvel état",
+            "it": "nuovo stato",
+            "es": "nuevo estado"
+        }
+    });
+    // There are two ways how to predefine default settings:
+    // - with attribute "data-default" (content independent)
+    // - with function in global variable "defaults". Function name is equal with adapter name.
+    //   as input function receives object with all information concerning it
+    if (typeof defaults !== 'undefined') {
+        defaults.expire = function (obj, instanceObj) {
+            return {
+                enabled:        false,
+                interval:       '5m',
+                state:          false,
+                setAck:         false
+            };
+        }
+    }
+</script>

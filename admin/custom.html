@@ -1,0 +1,45 @@
+<script type="text/x-iobroker" data-template-name="expire">
+    <div class="form-row">
+        <table style="font-size: 12px">
+            <tr>
+                <td class="translate">enabled</td>
+                <td><input type="checkbox" data-field="enabled" data-default="false"></td>
+                <!-- this field is mandatory, just to find out if to include this settings or not -->
+                <td style="width: 40px">&nbsp;</td>
+                <td><input type="text" data-field="interval" size="30"></td>
+                <td style="width: 20px">&nbsp;</td>
+                <td class="translate">period of time in 2d3h5m19s format</td>
+                <td style="width: 20px">&nbsp;</td>
+                <td><input type="text" data-field="state" size="30"></td>
+                <td style="width: 20px">&nbsp;</td>
+                <td class="translate">new state</td>
+                <td style="width: 20px">&nbsp;</td>
+                <td>ack</td>
+                <td><input type="checkbox" data-field="setAck" data-default="false"></td>
+            </tr>
+        </table>
+    </div>
+</script>
+
+<!-- translations -->
+<script type="text/javascript">
+    systemDictionary = $.extend(systemDictionary, {
+        "enabled":          {"en": "enabled",           "de": "Aktiviert",          "ru": "активно"},
+        "period of time in 2d3h5m19s format":     {"en": "period of time in 2d3h5m19s format",      "de": "Zeitraum im 2d3h5m19s Format",     "ru": "интервал времени в формате 2d3h5m19s"},
+        "new state":        {"en": "new state",         "de": "neuer Staat",         "ru": "новое значение"}
+    });
+    // There are two ways how to predefine default settings:
+    // - with attribute "data-default" (content independent)
+    // - with function in global variable "defaults". Function name is equal with adapter name.
+    //   as input function receives object with all information concerning it
+    if (typeof defaults !== 'undefined') {
+        defaults["expire"] = function (obj, instanceObj) {
+            return {
+                enabled:        false,
+                interval:       '5m',
+                state:          false,
+                setAck:         true
+            };
+        }
+    }
+</script>

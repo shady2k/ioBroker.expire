@@ -1,0 +1,70 @@
+{
+    "common": {
+        "name": "expire",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial version",
+                "de": "Initiale Version",
+                "ru": "Первоначальная версия адаптера",
+                "pt": "Versão inicial",
+                "fr": "Version initiale",
+                "nl": "Eerste release"
+            }
+        },
+		"title": "Javascript/Node.js based expire",
+        "titleLang": {
+            "en": "Javascript/Node.js based expire",
+            "de": "Javascript / Node.js basierte Vorlagenadapter",
+            "ru": "Адаптер шаблонов на основе Javascript / Node.js",
+            "pt": "Adaptador de modelo baseado em Javascript / Node.js",
+            "nl": "Javascript / Node.js gebaseerde sjabloonadapter",
+            "fr": "Javascript / Node.js basé adaptateur de modèle",
+            "it": "Adattatore modello basato su Javascript / Node.js",
+            "es": "Adaptador de plantilla basado en JavaScript / Node.js"
+        },
+        "desc": {
+            "en": "ioBroker expire",
+            "de": "ioBroker Expire",
+            "ru": "ioBroker Expire",
+            "pt": "Modelo de adaptador para o ioBroker",
+            "fr": "ioBroker adaptateur modèle",
+            "nl": "ioBroker Expire",
+            "it": "Adattatore modello ioBroker",
+            "es": "Adaptador de plantilla ioBroker"
+        },
+        "authors": [
+            "shady2k <shady2k@gmail.com>"
+        ],
+        "docs": {
+            "en": "docs/en/admin.md"
+        },
+        "platform": "Javascript/Node.js",
+        "mode": "daemon",
+        "compact": true,
+        "icon": "expire.png",
+        "supportCustoms": true,
+        "materialize": true,
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.expire/master/admin/expire.png",
+        "keywords": ["expire", "logic", "script"],
+        "readme": "https://github.com/ioBroker/ioBroker.expire/blob/master/README.md",
+        "loglevel": "info",
+        "type": "general",
+        "license": "MIT",
+        "messagebox": false,
+        "stopTimeout": 5000
+    },
+    "native": {},
+    "objects": [
+        {
+            "_id": "_design/expire",
+            "language": "javascript",
+            "views": {
+                "state": {
+                    "map": "function (doc) { if (doc.type == 'state' && doc.common.custom) emit(doc._id, doc.common); }"
+                }
+            }
+        }
+    ]
+}
