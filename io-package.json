@@ -17,7 +17,7 @@
             "en": "Expire"
         },
         "desc": {
-            "en": "This adapter allows you to change the state value after a specified time."
+            "en": "This adapter allows you to change the state value after a specified time.",
             "de": "Mit diesem Adapter können Sie den Statuswert nach einer bestimmten Zeit ändern",
             "ru": "Этот адаптер позволяет менять значение state через заданное время"
         },
