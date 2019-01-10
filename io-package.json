@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "expire",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "news": {
             "0.0.1": {
                 "en": "initial version",
@@ -33,7 +33,7 @@
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/shady2k/ioBroker.expire/master/admin/expire.png",
         "keywords": ["expire", "logic", "script"],
-        "readme": "https://github.com/ioBroker/ioBroker.expire/blob/master/README.md",
+        "readme": "https://github.com/shady2k/ioBroker.expire/blob/master/README.md",
         "loglevel": "info",
         "type": "logic",
 		"noConfig": true,

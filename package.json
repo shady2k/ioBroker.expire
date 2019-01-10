@@ -1,6 +1,6 @@
 {
   "name": "iobroker.expire",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "expire",
   "author": {
     "name": "shady2k",
@@ -12,7 +12,7 @@
       "email": "shady2k@gmail.com"
     }
   ],
-  "homepage": "https://github.com/ioBroker/ioBroker.expire",
+  "homepage": "https://github.com/shady2k/ioBroker.expire",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ioBroker/ioBroker.expire"
+    "url": "https://github.com/shady2k/ioBroker.expire"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^1.0.3"
@@ -37,7 +37,7 @@
     "test": "node node_modules/mocha/bin/mocha --exit"
   },
   "bugs": {
-    "url": "https://github.com/ioBroker/ioBroker.expire/issues"
+    "url": "https://github.com/shady2k/ioBroker.expire/issues"
   },
   "readmeFilename": "README.md"
 }
