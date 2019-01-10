@@ -28,7 +28,7 @@ function startAdapter(options) {
         },
         objectChange: function (id, obj) {
             if(obj && obj.common && obj.common.custom && obj.common.custom[adapter.namespace] && obj.common.custom[adapter.namespace].enabled) {
-                adapter.log.info('Object change detected for: ' + id);
+                adapter.log.debug('Object change detected for: ' + id);
                 deleteObject(id);
                 addToObjects(id, obj);
             } else {
