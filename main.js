@@ -152,7 +152,7 @@ function addToObjects(id, obj) {
     adapter.log.info('Register expire for id: ' + id);
     if(obj && obj.value && obj.value.common && obj.value.common.custom) {
         objects_arr[id] = obj.value.common.custom;
-        objects_arr[id].type = obj.value.type;
+        objects_arr[id].type = obj.value.common.type;
     } else if(obj && obj.common && obj.common.custom) {
         objects_arr[id] = obj.common.custom;
         objects_arr[id].type = obj.common.type;
