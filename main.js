@@ -1,4 +1,5 @@
-/* jshint -W097 */// jshint strict:false
+/* jshint -W097 */
+/* jshint strict: false */
 /*jslint node: true */
 'use strict';
 
@@ -7,6 +8,7 @@ const adapterName = require('./package.json').name.split('.').pop();
 
 let objects_arr = {};
 let timers_arr = {};
+let connected = null;
 
 let adapter;
 function startAdapter(options) {
@@ -50,6 +52,13 @@ function startAdapter(options) {
 
 	return adapter;
 };
+
+function setConnected(isConnected) {
+    if (connected !== isConnected) {
+        connected = isConnected;
+        adapter.setState('info.connection', connected, true);
+    }
+}
 
 function parseToMillis(timeString){
     var seconds = parseFloat(timeString);
@@ -141,8 +150,8 @@ function process(id, state, expire_interval, expire_state, expire_ack) {
 
 function addToObjects(id, obj) {
     adapter.log.info('Register expire for id: ' + id);
-    if(obj && obj.value && obj.value.custom) {
-        objects_arr[id] = obj.value.custom;
+    if(obj && obj.value && obj.value.common && obj.value.common.custom) {
+        objects_arr[id] = obj.value.common.custom;
         objects_arr[id].type = obj.value.type;
     } else if(obj && obj.common && obj.common.custom) {
         objects_arr[id] = obj.common.custom;
@@ -180,12 +189,13 @@ function addToObjects(id, obj) {
 }
 
 function main() {
+    setConnected(false);
     adapter.log.info('Expire adapter started!');
-    adapter.objects.getObjectView('expire', 'state', {}, function (err, doc) {
+    adapter.getObjectView('system', 'state', {}, function (err, doc) {
         if(doc && doc.rows) {
             for(let i = 0, l = doc.rows.length; i < l; i++) {
                 let obj = doc.rows[i];
-                if(obj && obj.id && obj.value && obj.value.custom && obj.value.custom[adapter.namespace] && obj.value.custom[adapter.namespace].enabled) {
+                if(obj && obj.id && obj.value && obj.value.common && obj.value.common.custom && obj.value.common.custom[adapter.namespace] && obj.value.common.custom[adapter.namespace].enabled) {
                     addToObjects(obj.id, obj);
                 }
             }
@@ -194,6 +204,7 @@ function main() {
 
     adapter.subscribeForeignObjects('*');
     adapter.subscribeForeignStates('*');
+    setConnected(true);
 }
 
 // If started as allInOne/compact mode => return function to create instance

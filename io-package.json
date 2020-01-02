@@ -1,8 +1,13 @@
 {
     "common": {
         "name": "expire",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "news": {
+            "0.0.3": {
+                "en": "Updating adapter to new controller version",
+                "de": "Adapter auf neue Controller-Version aktualisieren",
+                "ru": "Обновление адаптера до новой версии контроллера"
+            },
             "0.0.1": {
                 "en": "initial version",
                 "de": "Initiale Version",
@@ -42,15 +47,15 @@
         "stopTimeout": 5000
     },
     "native": {},
-    "objects": [
+    "instanceObjects": [
         {
-            "_id": "_design/expire",
-            "language": "javascript",
-            "views": {
-                "state": {
-                    "map": "function (doc) { if (doc.type == 'state' && doc.common.custom) emit(doc._id, doc.common); }"
-                }
-            }
+          "_id": "info",
+          "type": "channel",
+          "common": {
+            "name": "Information"
+          },
+          "native": {}
         }
-    ]
+    ],
+    "objects": []
 }
